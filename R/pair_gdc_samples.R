@@ -9,8 +9,8 @@
 #' as tumor, others as normal. When both blood-derived and solid tissue
 #' normals are available for a case, blood normal is preferred by default.
 #'
-#' @param x a path to a GDC manifest file, or a `data.frame` returned
-#'   by [parse_gdc_file_uuid()].
+#' @param x a path to a GDC manifest file, a vector of GDC file UUIDs,
+#'   or a `data.frame` returned by [parse_gdc_file_uuid()].
 #' @param prefer_blood_normal if `TRUE` (default), prefer blood-derived
 #'   normal samples over solid tissue normals when both are available
 #'   for the same case.
@@ -28,26 +28,33 @@
 #'
 #' @export
 #' @examples
-#' \donttest{
-#' # From a GDC manifest file
+#' # Mock data example (works offline)
+#' mock <- data.frame(
+#'   submitter_id = c("TCGA-02-0001-01B-02D-A271-08",
+#'                    "TCGA-02-0001-10B-01D-A273-01"),
+#'   sample_type  = c("Primary Tumor", "Blood Derived Normal"),
+#'   file_id      = c("fe522fc8-e690-49b9-b3b6-fa3658705057",
+#'                    "2c16506f-1110-4d60-81e3-a85233c79909"),
+#'   stringsAsFactors = FALSE
+#' )
+#' pair_gdc_samples(mock)
+#'
+#' \dontrun{
+#' # From a real GDC manifest file
 #' info <- pair_gdc_samples("gdc_manifest.txt")
 #' head(info)
-#'
-#' # From a parse_gdc_file_uuid result
-#' parsed <- parse_gdc_file_uuid("gdc_manifest.txt")
-#' info <- pair_gdc_samples(parsed)
 #' }
 pair_gdc_samples <- function(x, prefer_blood_normal = TRUE) {
 
-  # Accept both file path and data.frame
-  if (is.character(x) && length(x) == 1L && file.exists(x)) {
-    df <- parse_gdc_file_uuid(x)
-  } else if (is.data.frame(x)) {
+  # Accept file path, UUID vector, or data.frame
+  if (is.data.frame(x)) {
     df <- x
+  } else if (is.character(x)) {
+    df <- parse_gdc_file_uuid(x)
   } else {
     stop(
-      "`x` must be a path to a GDC manifest file or a data.frame ",
-      "returned by parse_gdc_file_uuid().",
+      "`x` must be a path to a GDC manifest file, a vector of GDC file UUIDs, ",
+      "or a data.frame returned by parse_gdc_file_uuid().",
       call. = FALSE
     )
   }
@@ -55,17 +62,40 @@ pair_gdc_samples <- function(x, prefer_blood_normal = TRUE) {
   # Standardize column names (parse_gdc_file_uuid returns variable field names)
   if (!all(c("sample", "type", "id") %in% names(df))) {
     nm <- names(df)
-    sample_col <- grep("submitter_id|sample", nm, value = TRUE, ignore.case = TRUE)[1]
-    type_col <- grep("sample_type|type", nm, value = TRUE, ignore.case = TRUE)[1]
-    id_col <- grep("file_id|id", nm, value = TRUE, ignore.case = TRUE)[1]
 
-    if (any(sapply(list(sample_col, type_col, id_col), is.na))) {
+    # Detect columns by priority: prefer exact patterns, fall back to substring
+    detect_col <- function(patterns, nm, exclude = character(0)) {
+      avail <- setdiff(nm, exclude)
+      for (p in patterns) {
+        hits <- grep(p, avail, ignore.case = TRUE, value = TRUE)
+        if (length(hits) > 0) return(hits[1])
+      }
+      NA_character_
+    }
+
+    sample_col <- detect_col(
+      c("submitter_id$", "submitter_id", "sample_id$", "sample$"),
+      nm
+    )
+    type_col <- detect_col(
+      c("sample_type$", "sample_type", "type$"),
+      nm,
+      exclude = sample_col
+    )
+    id_col <- detect_col(
+      c("file_id$", "file_id", "id$"),
+      nm,
+      exclude = c(sample_col, type_col)
+    )
+
+    if (anyNA(c(sample_col, type_col, id_col))) {
       stop(
         "Cannot identify required columns (sample, type, file_id) in the input.",
         call. = FALSE
       )
     }
-    setnames(df, c(sample_col, type_col, id_col), c("sample", "type", "id"))
+    data.table::setnames(df, c(sample_col, type_col, id_col),
+                         c("sample", "type", "id"))
   }
 
   dt <- data.table::as.data.table(df)

@@ -7,8 +7,8 @@
 pair_gdc_samples(x, prefer_blood_normal = TRUE)
 }
 \arguments{
-\item{x}{a path to a GDC manifest file, or a \code{data.frame} returned
-by \code{\link[=parse_gdc_file_uuid]{parse_gdc_file_uuid()}}.}
+\item{x}{a path to a GDC manifest file, a vector of GDC file UUIDs,
+or a \code{data.frame} returned by \code{\link[=parse_gdc_file_uuid]{parse_gdc_file_uuid()}}.}
 
 \item{prefer_blood_normal}{if \code{TRUE} (default), prefer blood-derived
 normal samples over solid tissue normals when both are available
@@ -38,13 +38,20 @@ as tumor, others as normal. When both blood-derived and solid tissue
 normals are available for a case, blood normal is preferred by default.
 }
 \examples{
-\donttest{
-# From a GDC manifest file
+# Mock data example (works offline)
+mock <- data.frame(
+  submitter_id = c("TCGA-02-0001-01B-02D-A271-08",
+                   "TCGA-02-0001-10B-01D-A273-01"),
+  sample_type  = c("Primary Tumor", "Blood Derived Normal"),
+  file_id      = c("fe522fc8-e690-49b9-b3b6-fa3658705057",
+                   "2c16506f-1110-4d60-81e3-a85233c79909"),
+  stringsAsFactors = FALSE
+)
+pair_gdc_samples(mock)
+
+\dontrun{
+# From a real GDC manifest file
 info <- pair_gdc_samples("gdc_manifest.txt")
 head(info)
-
-# From a parse_gdc_file_uuid result
-parsed <- parse_gdc_file_uuid("gdc_manifest.txt")
-info <- pair_gdc_samples(parsed)
 }
 }
