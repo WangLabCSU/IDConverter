@@ -30,6 +30,10 @@ for list.}
 \value{
 a \code{data.frame}
 }
+\seealso{
+\code{\link[=pair_gdc_samples]{pair_gdc_samples()}} for pairing tumor-normal
+samples from the parsed manifest result.
+}
 \description{
 Parse Sample ID from GDC Portal File UUID
 }

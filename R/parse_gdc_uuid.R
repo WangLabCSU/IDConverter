@@ -11,6 +11,8 @@
 #' @param max_try maximum try time.
 #'
 #' @return a `data.frame`
+#' @seealso [pair_gdc_samples()] for pairing tumor-normal samples from
+#'   the parsed manifest result.
 #' @importFrom httr GET content
 #' @export
 #'

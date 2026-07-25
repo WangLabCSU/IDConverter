@@ -1,5 +1,10 @@
 # IDConverter 0.4.0
 
+* Added `pair_gdc_samples()` — pairs tumor-normal samples from GDC
+  manifest files. Automatically classifies tumor vs normal by TCGA
+  barcode, prefers blood-derived normals, and generates all tumor-normal
+  combinations per case. (#7)
+
 # IDConverter 0.3.5
 
 * Removed from CRAN.

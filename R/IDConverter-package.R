@@ -3,6 +3,14 @@
 #' @importFrom tibble tibble
 "_PACKAGE"
 
+# Suppress R CMD check NOTE for data.table NSE variables
+utils::globalVariables(c(
+  ".", "case_id", "file_id_tumor", "file_id_normal",
+  "i.id", "i.type", "id", "normal_sample",
+  "sample_id", "tissue_type", "tumor_sample",
+  "type", "type2"
+))
+
 # The following block is used by usethis to automatically manage
 # roxygen namespace tags. Modify with care!
 ## usethis namespace: start
