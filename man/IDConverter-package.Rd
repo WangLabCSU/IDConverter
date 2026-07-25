@@ -11,9 +11,9 @@ Identifiers in biological databases connect different levels of metadata, phenot
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/ShixiangWang/IDConverter}
-  \item \url{https://shixiangwang.github.io/IDConverter/}
-  \item Report bugs at \url{https://github.com/ShixiangWang/IDConverter/issues}
+  \item \url{https://github.com/WangLabCSU/IDConverter}
+  \item \url{https://wanglabcsu.github.io/IDConverter/}
+  \item Report bugs at \url{https://github.com/WangLabCSU/IDConverter/issues}
 }
 
 }

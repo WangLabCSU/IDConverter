@@ -50,7 +50,7 @@ a \code{data.frame}.
 \description{
 Maps gene symbols or Ensembl IDs between human and mouse using
 Ensembl BioMart orthology data. This resolves homologous gene
-relationships (e.g., human TP53 ↔ mouse Trp53).
+relationships (e.g., human TP53 <-> mouse Trp53).
 }
 \details{
 \strong{Requirements:} This function requires the Bioconductor package

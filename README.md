@@ -8,7 +8,7 @@
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/IDConverter?color=orange)](https://cran.r-project.org/package=IDConverter)
-[![R-CMD-check](https://github.com/ShixiangWang/IDConverter/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ShixiangWang/IDConverter/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/WangLabCSU/IDConverter/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/WangLabCSU/IDConverter/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of IDConverter is to convert identifiers between biological
@@ -19,13 +19,13 @@ databases. Currently, I mainly use it for promoting cancer study.
 Install the latest version of IDConverter in GitHub with:
 
 ``` r
-remotes::install_github("ShixiangWang/IDConverter")
+remotes::install_github("WangLabCSU/IDConverter")
 ```
 
 Or Gitee (better in China, but not updated anymore):
 
 ``` r
-remotes::install_git("https://gitee.com/ShixiangWang/IDConverter")
+remotes::install_git("https://gitee.com/WangLabCSU/IDConverter")
 ```
 
 ## Available features
