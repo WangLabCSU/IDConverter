@@ -25,7 +25,7 @@ remotes::install_github("WangLabCSU/IDConverter")
 Or Gitee (better in China, but not updated anymore):
 
 ``` r
-remotes::install_git("https://gitee.com/WangLabCSU/IDConverter")
+remotes::install_git("https://gitee.com/ShixiangWang/IDConverter")
 ```
 
 ## Available features
