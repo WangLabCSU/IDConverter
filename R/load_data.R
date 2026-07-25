@@ -36,12 +36,17 @@ query_remote_data <- function(x) {
 #' For datasets bundled with the package (`tcga`, `icgc`, `pcawg_full`,
 #' `pcawg_simple`), local data is used directly without network access.
 #'
+#' @note
+#' The Zenodo repository contains fixed-version data. For the latest Ensembl
+#' gene annotations, use [build_annotables()] to query BioMart directly.
+#'
 #' @param x a dataset name.
 #'
 #' @return typically a `data.frame`, depends on `x`.
 #' @importFrom utils download.file
 #' @importFrom utils data
 #' @export
+#' @seealso [build_annotables()] for live Ensembl BioMart queries.
 #' @examples
 #' \donttest{
 #' load_data("pcawg_full")

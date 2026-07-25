@@ -3,6 +3,29 @@
 * Removed from CRAN.
 * Removed hard code of the `.data_path` in the package.
 
+## CRAN Resubmission
+
+* Bundled real data files in `data/` (tcga, icgc, pcawg_full, pcawg_simple)
+  instead of empty placeholders — core functions now work fully offline.
+* `load_data()` now loads bundled datasets directly via `utils::data()`,
+  falling back to Zenodo download only for non-bundled data.
+* Added `LazyDataCompression: xz` to DESCRIPTION to comply with CRAN policy
+  for lazy data larger than 1 MB.
+* Wrapped `parse_gdc_file_uuid()` examples in `\dontrun{}` to prevent
+  network access during R CMD check.
+* `ls_annotables()` and `convert_hm_genes()` now handle offline state
+  gracefully with informative messages.
+* Updated Zenodo record URL from 6342397 to 10360995 (`/records/` format).
+
+## New Features
+
+* Added `build_annotables()` — builds up-to-date gene annotation tables
+  directly from Ensembl BioMart using recipes from the annotables package.
+  Supports 11 organisms (including dog, zebrafish, pig) with mirror
+  fallback and local caching. Requires `biomaRt` (Bioconductor).
+* `convert_hm_genes()` now supports `ce11` (C. elegans) and `T2T`
+  (human T2T/CHM13) genome builds.
+
 # IDConverter 0.3.4
 
 * Suppressed the check warning and error.

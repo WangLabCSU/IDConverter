@@ -1,10 +1,10 @@
-#' List Annotation Tables from `annotables` package
+#' List Available Annotation Tables
 #'
-#' The tables are obtained from [annotables](https://github.com/stephenturner/annotables)
-#' package and stored in Zenodo for better management. They can be downloaded and
-#' loaded with [load_data()]. See details for more info.
+#' Lists all annotation tables that can be loaded via [load_data()] from
+#' the Zenodo repository (fixed Ensembl version). For the latest Ensembl
+#' annotations, use [build_annotables()] to query BioMart directly.
 #'
-#' Many bioinformatics tasks require converting gene identifiers from one convention to another, or annotating gene identifiers with gene symbol, description, position, etc. Sure, [biomaRt](https://bioconductor.org/packages/release/bioc/html/biomaRt.html) does this for you, but users may get tired of remembering biomaRt syntax and hammering Ensembl's servers every time. These tables have basic annotation information from **Ensembl Genes** for:
+#' These tables have basic annotation information from **Ensembl Genes** for:
 #' -   Human build 38 (`grch38`)
 #' -   Human build 37 (`grch37`)
 #' -   Mouse (`grcm38`)
@@ -23,13 +23,16 @@
 #' -   `strand`: Strand
 #' -   `biotype`: Protein coding, pseudogene, mitochondrial tRNA, etc.
 #' -   `description`: Full gene name/description
-#' Additionally, there are `tx2gene` tables that link Ensembl gene IDs to Ensembl transcript IDs.
+#' Additionally, there are `tx2gene` tables that link Ensembl gene IDs to
+#' Ensembl transcript IDs.
 #'
-#' **NOTE**, the description above is copied from README of `annotables` package.
-#' If you are unclear to the data tables, please refer to [annotables](https://github.com/stephenturner/annotables).
-#' @return a `data.frame`
+#' Use [build_annotables()] to fetch the latest annotations from Ensembl
+#' BioMart, which also supports additional organisms (dog, zebrafish, pig).
+#'
+#' @return a character vector of available table names.
 #' @export
 #' @references <https://github.com/stephenturner/annotables>
+#' @seealso [build_annotables()] for live Ensembl BioMart queries.
 #'
 #' @examples
 #' \donttest{

@@ -19,10 +19,12 @@ Imports:
     data.table,
     httr,
     tibble
-Suggests: 
+Suggests:
+    biomaRt,
     covr,
     readr,
     testthat
+biocViews:
 Encoding: UTF-8
 LazyData: true
 LazyDataCompression: xz

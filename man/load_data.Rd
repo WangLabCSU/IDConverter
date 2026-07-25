@@ -19,6 +19,11 @@ For datasets bundled with the package (\code{tcga}, \code{icgc},
 \code{pcawg_full}, \code{pcawg_simple}), local data is used directly
 without network access.
 }
+\note{
+The Zenodo repository contains fixed-version data. For the latest Ensembl
+gene annotations, use \code{\link[=build_annotables]{build_annotables()}} to
+query BioMart directly.
+}
 \examples{
 \donttest{
 load_data("pcawg_full")
@@ -26,4 +31,7 @@ load_data("pcawg_simple")
 load_data("tcga")
 load_data("icgc")
 }
+}
+\seealso{
+\code{\link[=build_annotables]{build_annotables()}} for live Ensembl BioMart queries.
 }
