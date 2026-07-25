@@ -15,7 +15,7 @@
 #' @export
 #'
 #' @examples
-#'
+#' \dontrun{
 #' parse_gdc_file_uuid("fe522fc8-e690-49b9-b3b6-fa3658705057")
 #' parse_gdc_file_uuid(
 #'   c(
@@ -23,6 +23,7 @@
 #'     "2c16506f-1110-4d60-81e3-a85233c79909"
 #'   )
 #' )
+#' }
 parse_gdc_file_uuid <- function(x, legacy = FALSE,
                                 fields = "cases.samples.submitter_id,cases.samples.sample_type,file_id",
                                 token = NULL, max_try = 5L) {

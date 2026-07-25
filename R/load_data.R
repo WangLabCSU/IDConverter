@@ -4,7 +4,7 @@
 
 # Copy from sigminer
 query_remote_data <- function(x) {
-  x_url <- paste0("https://zenodo.org/record/6342397/files/", x)
+  x_url <- paste0("https://zenodo.org/records/10360995/files/", x)
   # dir_dest <- system.file("extdata", package = "IDConverter")
   dir_dest <- getOption("IDConverter.datapath", .data_path())
   if (!dir.exists(dir_dest)) dir.create(dir_dest, recursive = TRUE)
@@ -31,13 +31,16 @@ query_remote_data <- function(x) {
 
 #' Load Data from Local or Remote Zenodo Repository
 #'
-#' Data are stored in remote [Zenodo repo](https://zenodo.org/record/6342397).
+#' Data are stored in remote [Zenodo repo](https://zenodo.org/records/10360995).
 #' This function will help download required data and load it into R.
+#' For datasets bundled with the package (`tcga`, `icgc`, `pcawg_full`,
+#' `pcawg_simple`), local data is used directly without network access.
 #'
 #' @param x a dataset name.
 #'
 #' @return typically a `data.frame`, depends on `x`.
 #' @importFrom utils download.file
+#' @importFrom utils data
 #' @export
 #' @examples
 #' \donttest{
@@ -47,6 +50,25 @@ query_remote_data <- function(x) {
 #' load_data("icgc")
 #' }
 load_data <- function(x) {
+  # First, try to load from package bundled data (no network needed)
+  bundled_data <- tryCatch(
+    {
+      e <- new.env(parent = emptyenv())
+      utils::data(list = x, package = "IDConverter", envir = e)
+      if (length(ls(e)) > 0) {
+        return(e[[ls(e)[1]]])
+      }
+      NULL
+    },
+    error = function(e) NULL,
+    warning = function(w) NULL
+  )
+
+  if (!is.null(bundled_data)) {
+    return(bundled_data)
+  }
+
+  # Fall back to file-based loading for non-bundled datasets
   load_file <- file.path(
     getOption("IDConverter.datapath", .data_path()),
     paste0(x, ".rda")
@@ -56,15 +78,14 @@ load_data <- function(x) {
   if (!ok) {
     return(invisible(NULL))
   }
-  # data = new.env(parent = emptyenv())
-  # load(load_file, envir = data)
-  # get(ls(data), envir = data)
-  tryCatch({
-    load(load_file)
-    get(setdiff(ls(), c("load_file", "ok", "x")))
-  },
-  error = function(e) {
-    message("Failed loading the data.")
-    NULL
-  })
+  tryCatch(
+    {
+      load(load_file)
+      get(setdiff(ls(), c("load_file", "ok", "x", "bundled_data", "e")))
+    },
+    error = function(e) {
+      message("Failed loading the data.")
+      NULL
+    }
+  )
 }

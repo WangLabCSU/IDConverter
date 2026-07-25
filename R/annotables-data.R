@@ -37,7 +37,12 @@
 #' load_data(ls_annotables()[1])
 #' }
 ls_annotables <- function() {
-  message("Version: ", load_data("ensembl_version"))
+  ver <- load_data("ensembl_version")
+  if (!is.null(ver)) {
+    message("Version: ", ver)
+  } else {
+    message("Version: unknown (network required to fetch version info)")
+  }
   c(
     "bdgp6", "bdgp6_tx2gene",
     "galgal5", "galgal5_tx2gene",

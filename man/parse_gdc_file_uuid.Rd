@@ -34,7 +34,7 @@ a \code{data.frame}
 Parse Sample ID from GDC Portal File UUID
 }
 \examples{
-
+\dontrun{
 parse_gdc_file_uuid("fe522fc8-e690-49b9-b3b6-fa3658705057")
 parse_gdc_file_uuid(
   c(
@@ -42,4 +42,5 @@ parse_gdc_file_uuid(
     "2c16506f-1110-4d60-81e3-a85233c79909"
   )
 )
+}
 }

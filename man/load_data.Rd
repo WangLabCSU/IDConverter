@@ -13,8 +13,11 @@ load_data(x)
 typically a \code{data.frame}, depends on \code{x}.
 }
 \description{
-Data are stored in remote \href{https://zenodo.org/record/6342397}{Zenodo repo}.
+Data are stored in remote \href{https://zenodo.org/records/10360995}{Zenodo repo}.
 This function will help download required data and load it into R.
+For datasets bundled with the package (\code{tcga}, \code{icgc},
+\code{pcawg_full}, \code{pcawg_simple}), local data is used directly
+without network access.
 }
 \examples{
 \donttest{

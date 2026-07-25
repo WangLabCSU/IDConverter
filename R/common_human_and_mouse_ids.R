@@ -1,4 +1,7 @@
-#' Convert Human/Mouse Gene IDs between Ensembl and Hugo Symbol System
+#' Convert Gene IDs between Ensembl and Hugo Symbol System
+#'
+#' Supports human (hg38, hg19, T2T), mouse (mm10, mm9), and
+#' worm (ce11, C. elegans) genomes.
 #'
 #' @param IDs a character vector to convert.
 #' @param type type of input `IDs`, could be 'ensembl' or 'symbol'.
@@ -16,17 +19,23 @@
 #' convert_hm_genes(c("TP53", "KRAS", "EGFR", "MYC"), type = "symbol")
 #' }
 convert_hm_genes <- function(IDs, type = c("ensembl", "symbol"),
-                             genome_build = c("hg38", "hg19", "mm10", "mm9"),
+                             genome_build = c("hg38", "hg19", "mm10", "mm9",
+                                              "ce11", "T2T"),
                              multiple = FALSE) {
   type <- match.arg(type)
   genome_build <- match.arg(genome_build)
   ref_data <- get_common_ref_data(genome_build)
   if (is.null(ref_data)) {
-    message("Failed obtaining the reference data.")
+    message(
+      "Failed obtaining the reference data. ",
+      "This function requires network access to download gene annotation data ",
+      "from Zenodo on first use. Please ensure network connectivity, ",
+      "or pre-download the data files."
+    )
     return(invisible(NULL))
   }
 
-  if (genome_build %in% c("hg38", "hg19")) {
+  if (genome_build %in% c("hg38", "hg19", "T2T")) {
     ref_data$gene_id <- substr(ref_data$gene_id, 1, 15)
   } else {
     ref_data$gene_id <- substr(ref_data$gene_id, 1, 18)
@@ -44,21 +53,27 @@ convert_hm_genes <- function(IDs, type = c("ensembl", "symbol"),
 }
 
 
-get_common_ref_data <- function(genome_build = c("hg38", "hg19", "mm10", "mm9")) {
+get_common_ref_data <- function(genome_build = c("hg38", "hg19", "mm10", "mm9",
+                                                  "ce11", "T2T")) {
   genome_build <- match.arg(genome_build)
   gene_file <- switch(genome_build,
     mm9 = file.path(
-      # system.file("extdata", package = "IDConverter"),
       getOption("IDConverter.datapath", .data_path()),
       "mouse_mm9_gene_info.rds"
     ),
     mm10 = file.path(
-      # system.file("extdata", package = "IDConverter"),
       getOption("IDConverter.datapath", .data_path()),
       "mouse_mm10_gene_info.rds"
     ),
+    ce11 = file.path(
+      getOption("IDConverter.datapath", .data_path()),
+      "ce11_gene_info.rds"
+    ),
+    T2T = file.path(
+      getOption("IDConverter.datapath", .data_path()),
+      "human_T2T_gene_info.rds"
+    ),
     file.path(
-      # system.file("extdata", package = "IDConverter"),
       getOption("IDConverter.datapath", .data_path()),
       paste0("human_", genome_build, "_gene_info.rds")
     )

@@ -2,12 +2,12 @@
 % Please edit documentation in R/common_human_and_mouse_ids.R
 \name{convert_hm_genes}
 \alias{convert_hm_genes}
-\title{Convert Human/Mouse Gene IDs between Ensembl and Hugo Symbol System}
+\title{Convert Gene IDs between Ensembl and Hugo Symbol System}
 \usage{
 convert_hm_genes(
   IDs,
   type = c("ensembl", "symbol"),
-  genome_build = c("hg38", "hg19", "mm10", "mm9"),
+  genome_build = c("hg38", "hg19", "mm10", "mm9", "ce11", "T2T"),
   multiple = FALSE
 )
 }
@@ -16,7 +16,9 @@ convert_hm_genes(
 
 \item{type}{type of input \code{IDs}, could be 'ensembl' or 'symbol'.}
 
-\item{genome_build}{reference genome build.}
+\item{genome_build}{reference genome build.
+Supported: \code{"hg38"}, \code{"hg19"}, \code{"mm10"}, \code{"mm9"},
+\code{"ce11"} (C. elegans), \code{"T2T"} (human T2T/CHM13).}
 
 \item{multiple}{if \code{TRUE}, return a \code{data.table} instead of a string vector,
 so multiple identifier mappings can be kept.}
@@ -25,7 +27,10 @@ so multiple identifier mappings can be kept.}
 a vector or a \code{data.table}.
 }
 \description{
-Convert Human/Mouse Gene IDs between Ensembl and Hugo Symbol System
+Convert Gene IDs between Ensembl and Hugo Symbol System.
+
+Supports human (hg38, hg19, T2T), mouse (mm10, mm9), and
+worm (ce11, C. elegans) genomes.
 }
 \examples{
 \donttest{
