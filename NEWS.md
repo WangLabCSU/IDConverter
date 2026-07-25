@@ -1,15 +1,5 @@
 # IDConverter 0.4.0
 
-* Added `pair_gdc_samples()` — pairs tumor-normal samples from GDC
-  manifest files. Automatically classifies tumor vs normal by TCGA
-  barcode, prefers blood-derived normals, and generates all tumor-normal
-  combinations per case. (#7)
-
-# IDConverter 0.3.5
-
-* Removed from CRAN.
-* Removed hard code of the `.data_path` in the package.
-
 ## CRAN Resubmission
 
 * Bundled real data files in `data/` (tcga, icgc, pcawg_full, pcawg_simple)
@@ -23,6 +13,7 @@
 * `ls_annotables()` and `convert_hm_genes()` now handle offline state
   gracefully with informative messages.
 * Updated Zenodo record URL from 6342397 to 10360995 (`/records/` format).
+* Added `biocViews:` field to DESCRIPTION for Bioconductor compatibility.
 
 ## New Features
 
@@ -30,8 +21,17 @@
   directly from Ensembl BioMart using recipes from the annotables package.
   Supports 11 organisms (including dog, zebrafish, pig) with mirror
   fallback and local caching. Requires `biomaRt` (Bioconductor).
+* Added `pair_gdc_samples()` — pairs tumor-normal samples from GDC
+  manifest files. Automatically classifies tumor vs normal by TCGA
+  barcode, prefers blood-derived normals, and generates all tumor-normal
+  combinations per case. (#7)
 * `convert_hm_genes()` now supports `ce11` (C. elegans) and `T2T`
   (human T2T/CHM13) genome builds.
+
+# IDConverter 0.3.5
+
+* Removed from CRAN.
+* Removed hard code of the `.data_path` in the package.
 
 # IDConverter 0.3.4
 
