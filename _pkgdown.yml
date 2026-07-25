@@ -1,4 +1,76 @@
 url: https://wanglabcsu.github.io/IDConverter/
 template:
   bootstrap: 5
+  bslib:
+    primary: "#0055AA"
+    danger: "#CC0000"
 
+navbar:
+  structure:
+    left:  [reference, articles, news]
+    right: [search, github]
+  components:
+    reference:
+      text: Reference
+      href: reference/index.html
+    articles:
+      text: Articles
+      menu:
+      - text: "Get Started"
+        href: articles/IDConverter.html
+    news:
+      text: Changelog
+      href: news/index.html
+    github:
+      icon: fa-github
+      href: https://github.com/WangLabCSU/IDConverter
+      aria-label: GitHub
+
+reference:
+  - title: "ID Conversion"
+    desc: >
+      Convert identifiers within or between biological databases.
+    contents:
+      - convert_tcga
+      - convert_icgc
+      - convert_pcawg
+      - convert_custom
+      - convert_hm_genes
+      - convert_hm_orthologs
+
+  - title: "Gene Annotation Tables"
+    desc: >
+      Build, load, and manage gene annotation tables from Ensembl or Zenodo.
+    contents:
+      - build_annotables
+      - load_data
+      - ls_annotables
+      - resolve_gene_aliases
+
+  - title: "GDC / TCGA Utilities"
+    desc: >
+      Parse GDC manifest files, pair tumor-normal samples, and filter barcodes.
+    contents:
+      - parse_gdc_file_uuid
+      - pair_gdc_samples
+      - filter_tcga_barcodes
+
+  - title: "Datasets"
+    desc: >
+      Bundled identifier mapping datasets for offline use.
+    contents:
+      - tcga
+      - icgc
+      - pcawg_full
+      - pcawg_simple
+
+authors:
+  Shixiang Wang:
+    href: https://orcid.org/0000-0001-9855-7357
+    html: "<img src='https://orcid.org/sites/default/files/images/orcid_16x16.png' alt='ORCID' width='16' height='16'> Shixiang Wang"
+
+development:
+  mode: auto
+
+search:
+  exclude: ['news/index.html']
