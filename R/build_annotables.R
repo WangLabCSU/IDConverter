@@ -208,7 +208,7 @@ ENSEMBL_MIRRORS <- c(
 #'   [ls_annotables()] for listing available tables.
 #' @references
 #' - \url{https://github.com/stephenturner/annotables}
-#' - \url{https://useast.ensembl.org/info/data/biomart.html}
+#' - \url{https://www.ensembl.org/info/data/biomart.html}
 #'
 #' @export
 #'

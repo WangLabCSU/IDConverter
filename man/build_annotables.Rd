@@ -79,7 +79,7 @@ names(all_tables)
 \references{
 \itemize{
 \item \url{https://github.com/stephenturner/annotables}
-\item \url{https://useast.ensembl.org/info/data/biomart.html}
+\item \url{https://www.ensembl.org/info/data/biomart.html}
 }
 }
 \seealso{
