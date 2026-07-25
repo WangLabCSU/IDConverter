@@ -110,7 +110,7 @@ grch38 <- build_annotables("grch38", tx2gene = FALSE)
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 91743 rows
-#>   Cached to: /tmp/RtmpgblwcJ/grch38.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/grch38.rda
 #> 
 #> Successfully built 1 table(s). Use names() to see available tables.
 head(grch38[[1]])
@@ -127,7 +127,7 @@ head(grch38[[1]])
 # Build all available tables (requires internet + biomaRt)
 all_tables <- build_annotables()
 #> --- Building: grch38 ---
-#>   Loading from cache: /tmp/RtmpgblwcJ/grch38.rda
+#>   Loading from cache: /tmp/Rtmp8YevTQ/grch38.rda
 #> --- Building: grch37 ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -138,7 +138,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 91743 rows
-#>   Cached to: /tmp/RtmpgblwcJ/grch37.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/grch37.rda
 #> --- Building: grcm38 ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -149,7 +149,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 78718 rows
-#>   Cached to: /tmp/RtmpgblwcJ/grcm38.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/grcm38.rda
 #> --- Building: rnor6 ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -160,7 +160,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 57760 rows
-#>   Cached to: /tmp/RtmpgblwcJ/rnor6.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/rnor6.rda
 #> --- Building: bdgp6 ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -171,7 +171,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 28759 rows
-#>   Cached to: /tmp/RtmpgblwcJ/bdgp6.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/bdgp6.rda
 #> --- Building: galgal5 ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -182,7 +182,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 34332 rows
-#>   Cached to: /tmp/RtmpgblwcJ/galgal5.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/galgal5.rda
 #> --- Building: mmul801 ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -193,7 +193,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 37169 rows
-#>   Cached to: /tmp/RtmpgblwcJ/mmul801.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/mmul801.rda
 #> --- Building: wbcel235 ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -204,7 +204,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 46926 rows
-#>   Cached to: /tmp/RtmpgblwcJ/wbcel235.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/wbcel235.rda
 #> --- Building: cfamiliaris ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -215,7 +215,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 34012 rows
-#>   Cached to: /tmp/RtmpgblwcJ/cfamiliaris.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/cfamiliaris.rda
 #> --- Building: drerio ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -225,8 +225,10 @@ all_tables <- build_annotables()
 #> ! SSL peer certificate or SSH remote key was not OK [uswest.ensembl.org]:
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
+#>     Failed: HTTP 405 Method Not Allowed.
+#>   Trying mirror: https://asia.ensembl.org
 #>     OK: 92137 rows
-#>   Cached to: /tmp/RtmpgblwcJ/drerio.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/drerio.rda
 #> --- Building: sscrofa ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -237,7 +239,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 35819 rows
-#>   Cached to: /tmp/RtmpgblwcJ/sscrofa.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/sscrofa.rda
 #> --- Building: grch38_tx2gene ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -248,7 +250,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 670670 rows
-#>   Cached to: /tmp/RtmpgblwcJ/grch38_tx2gene.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/grch38_tx2gene.rda
 #> --- Building: grch37_tx2gene ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -259,7 +261,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 670670 rows
-#>   Cached to: /tmp/RtmpgblwcJ/grch37_tx2gene.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/grch37_tx2gene.rda
 #> --- Building: grcm38_tx2gene ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -270,7 +272,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 481956 rows
-#>   Cached to: /tmp/RtmpgblwcJ/grcm38_tx2gene.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/grcm38_tx2gene.rda
 #> --- Building: rnor6_tx2gene ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -281,7 +283,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 95472 rows
-#>   Cached to: /tmp/RtmpgblwcJ/rnor6_tx2gene.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/rnor6_tx2gene.rda
 #> --- Building: bdgp6_tx2gene ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -292,7 +294,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 41600 rows
-#>   Cached to: /tmp/RtmpgblwcJ/bdgp6_tx2gene.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/bdgp6_tx2gene.rda
 #> --- Building: galgal5_tx2gene ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -303,7 +305,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 72689 rows
-#>   Cached to: /tmp/RtmpgblwcJ/galgal5_tx2gene.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/galgal5_tx2gene.rda
 #> --- Building: mmul801_tx2gene ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -314,7 +316,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 64228 rows
-#>   Cached to: /tmp/RtmpgblwcJ/mmul801_tx2gene.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/mmul801_tx2gene.rda
 #> --- Building: wbcel235_tx2gene ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -325,7 +327,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 60000 rows
-#>   Cached to: /tmp/RtmpgblwcJ/wbcel235_tx2gene.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/wbcel235_tx2gene.rda
 #> --- Building: cfamiliaris_tx2gene ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -336,7 +338,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 55335 rows
-#>   Cached to: /tmp/RtmpgblwcJ/cfamiliaris_tx2gene.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/cfamiliaris_tx2gene.rda
 #> --- Building: drerio_tx2gene ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -347,7 +349,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 65905 rows
-#>   Cached to: /tmp/RtmpgblwcJ/drerio_tx2gene.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/drerio_tx2gene.rda
 #> --- Building: sscrofa_tx2gene ---
 #>   Trying mirror: https://useast.ensembl.org
 #>     Failed: HTTP 403 Forbidden.
@@ -358,7 +360,7 @@ all_tables <- build_annotables()
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 60440 rows
-#>   Cached to: /tmp/RtmpgblwcJ/sscrofa_tx2gene.rda
+#>   Cached to: /tmp/Rtmp8YevTQ/sscrofa_tx2gene.rda
 #> 
 #> Successfully built 22 table(s). Use names() to see available tables.
 names(all_tables)

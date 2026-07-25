@@ -9,7 +9,7 @@ worm (ce11, C. elegans) genomes."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">IDConverter</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,10 +18,14 @@ worm (ce11, C. elegans) genomes."></head><body>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/IDConverter.html">Get Started</a></li>
+  </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/WangLabCSU/IDConverter/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/WangLabCSU/IDConverter" aria-label="GitHub"><span class="fa fa-github"></span></a></li>
       </ul></div>
 
 
@@ -91,7 +95,7 @@ use <code><a href="build_annotables.html">build_annotables()</a></code> with <co
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">convert_hm_genes</span><span class="op">(</span><span class="st">"ENSG00000243485"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading https://zenodo.org/records/10360995/files/human_hg38_gene_info.rds to /tmp/RtmpgblwcJ/human_hg38_gene_info.rds</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading https://zenodo.org/records/10360995/files/human_hg38_gene_info.rds to /tmp/Rtmp8YevTQ/human_hg38_gene_info.rds</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "MIR1302-2HG"</span>
 <span class="r-in"><span><span class="fu">convert_hm_genes</span><span class="op">(</span><span class="st">"ENSG00000243485"</span>, multiple <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               from          to</span>
@@ -107,7 +111,7 @@ use <code><a href="build_annotables.html">build_annotables()</a></code> with <co
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Shixiang Wang.</p>
+  <p>Developed by <a href="https://orcid.org/0000-0001-9855-7357" class="external-link"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID" width="16" height="16"> Shixiang Wang</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

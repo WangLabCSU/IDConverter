@@ -2,8 +2,9 @@
 
 ## Authors
 
-- **Shixiang Wang**. Author, maintainer.
-  [](https://orcid.org/0000-0001-9855-7357)
+- **[![ORCID](https://orcid.org/sites/default/files/images/orcid_16x16.png)
+  Shixiang Wang](https://orcid.org/0000-0001-9855-7357)**. Author,
+  maintainer. [](https://orcid.org/0000-0001-9855-7357)
 
 ## Citation
 
