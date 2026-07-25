@@ -5,7 +5,7 @@
 #'
 #' @note
 #' This function matches against **primary** gene symbols only. For
-#' resolving outdated or alternative gene names (aliases like "MLL" → "KMT2A"),
+#' resolving outdated or alternative gene names (aliases like "MLL" -> "KMT2A"),
 #' use [build_annotables()] with `include_synonyms = TRUE` followed by
 #' [resolve_gene_aliases()].
 #'

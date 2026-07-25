@@ -426,7 +426,7 @@ tidy_annotable <- function(df, recipe, tx = FALSE) {
 #'
 #' Maps gene symbols through known aliases (synonyms) to their current
 #' official symbols and Ensembl gene IDs. This helps when working with
-#' outdated or alternative gene names (e.g., "MLL" → "KMT2A").
+#' outdated or alternative gene names (e.g., "MLL" -> "KMT2A").
 #'
 #' @param symbols a character vector of gene symbols to resolve.
 #' @param annotable a `data.frame` from [build_annotables()] with
@@ -438,7 +438,7 @@ tidy_annotable <- function(df, recipe, tx = FALSE) {
 #'   \item{query}{the input gene symbols}
 #'   \item{symbol}{resolved official gene symbol (\code{NA} if unmatched)}
 #'   \item{ensgene}{resolved Ensembl gene ID (\code{NA} if unmatched)}
-#'   When `multiple = TRUE`, each row is a single query→match pair,
+#'   When `multiple = TRUE`, each row is a single query->match pair,
 #'   so one query may appear in multiple rows.
 #'
 #' @export
@@ -469,7 +469,7 @@ resolve_gene_aliases <- function(symbols, annotable, multiple = FALSE) {
   dt <- data.table::as.data.table(annotable)
   dt <- unique(dt[, list(symbol, ensgene, synonym)])
 
-  # Build alias lookup: each alias → list of (symbol, ensgene) pairs
+  # Build alias lookup: each alias -> list of (symbol, ensgene) pairs
   alias_map <- data.table::data.table(
     alias = character(), symbol = character(), ensgene = character()
   )
@@ -490,7 +490,7 @@ resolve_gene_aliases <- function(symbols, annotable, multiple = FALSE) {
     }
   }
 
-  # Remove duplicate alias→symbol mappings
+  # Remove duplicate alias->symbol mappings
   alias_map <- unique(alias_map)
 
   # Resolve each input symbol

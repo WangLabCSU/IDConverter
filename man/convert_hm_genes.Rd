@@ -30,7 +30,7 @@ worm (ce11, C. elegans) genomes.
 }
 \note{
 This function matches against \strong{primary} gene symbols only. For
-resolving outdated or alternative gene names (aliases like "MLL" → "KMT2A"),
+resolving outdated or alternative gene names (aliases like "MLL" -> "KMT2A"),
 use \code{\link[=build_annotables]{build_annotables()}} with \code{include_synonyms = TRUE} followed by
 \code{\link[=resolve_gene_aliases]{resolve_gene_aliases()}}.
 }

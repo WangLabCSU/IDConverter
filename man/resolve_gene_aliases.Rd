@@ -20,13 +20,13 @@ a \code{data.frame} (tibble) with columns:
 \item{query}{the input gene symbols}
 \item{symbol}{resolved official gene symbol (\code{NA} if unmatched)}
 \item{ensgene}{resolved Ensembl gene ID (\code{NA} if unmatched)}
-When \code{multiple = TRUE}, each row is a single query→match pair,
+When \code{multiple = TRUE}, each row is a single query->match pair,
 so one query may appear in multiple rows.
 }
 \description{
 Maps gene symbols through known aliases (synonyms) to their current
 official symbols and Ensembl gene IDs. This helps when working with
-outdated or alternative gene names (e.g., "MLL" → "KMT2A").
+outdated or alternative gene names (e.g., "MLL" -> "KMT2A").
 }
 \examples{
 \donttest{
