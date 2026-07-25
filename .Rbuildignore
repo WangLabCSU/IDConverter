@@ -9,3 +9,4 @@ inst/extdata/icgc.rda
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^\.github$

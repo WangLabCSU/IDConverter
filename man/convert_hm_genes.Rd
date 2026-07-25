@@ -16,9 +16,7 @@ convert_hm_genes(
 
 \item{type}{type of input \code{IDs}, could be 'ensembl' or 'symbol'.}
 
-\item{genome_build}{reference genome build.
-Supported: \code{"hg38"}, \code{"hg19"}, \code{"mm10"}, \code{"mm9"},
-\code{"ce11"} (C. elegans), \code{"T2T"} (human T2T/CHM13).}
+\item{genome_build}{reference genome build.}
 
 \item{multiple}{if \code{TRUE}, return a \code{data.table} instead of a string vector,
 so multiple identifier mappings can be kept.}
@@ -27,10 +25,14 @@ so multiple identifier mappings can be kept.}
 a vector or a \code{data.table}.
 }
 \description{
-Convert Gene IDs between Ensembl and Hugo Symbol System.
-
 Supports human (hg38, hg19, T2T), mouse (mm10, mm9), and
 worm (ce11, C. elegans) genomes.
+}
+\note{
+This function matches against \strong{primary} gene symbols only. For
+resolving outdated or alternative gene names (aliases like "MLL" → "KMT2A"),
+use \code{\link[=build_annotables]{build_annotables()}} with \code{include_synonyms = TRUE} followed by
+\code{\link[=resolve_gene_aliases]{resolve_gene_aliases()}}.
 }
 \examples{
 \donttest{
@@ -38,4 +40,7 @@ convert_hm_genes("ENSG00000243485")
 convert_hm_genes("ENSG00000243485", multiple = TRUE)
 convert_hm_genes(c("TP53", "KRAS", "EGFR", "MYC"), type = "symbol")
 }
+}
+\seealso{
+\code{\link[=resolve_gene_aliases]{resolve_gene_aliases()}} for resolving gene symbol aliases.
 }

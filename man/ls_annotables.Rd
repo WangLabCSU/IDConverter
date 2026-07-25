@@ -25,9 +25,7 @@ These tables have basic annotation information from \strong{Ensembl Genes} for:
 \item Worm (\code{wbcel235})
 \item Fly (\code{bdgp6})
 \item Macaque (\code{mmul801})
-}
 Where each table contains:
-\itemize{
 \item \code{ensgene}: Ensembl gene ID
 \item \code{entrez}: Entrez gene ID
 \item \code{symbol}: Gene symbol
@@ -37,9 +35,9 @@ Where each table contains:
 \item \code{strand}: Strand
 \item \code{biotype}: Protein coding, pseudogene, mitochondrial tRNA, etc.
 \item \code{description}: Full gene name/description
-}
 Additionally, there are \code{tx2gene} tables that link Ensembl gene IDs to
 Ensembl transcript IDs.
+}
 
 Use \code{\link[=build_annotables]{build_annotables()}} to fetch the latest annotations from Ensembl
 BioMart, which also supports additional organisms (dog, zebrafish, pig).

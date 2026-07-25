@@ -5,9 +5,9 @@
 
 # Suppress R CMD check NOTE for data.table NSE variables
 utils::globalVariables(c(
-  ".", "case_id", "file_id_tumor", "file_id_normal",
-  "i.id", "i.type", "id", "normal_sample",
-  "sample_id", "tissue_type", "tumor_sample",
+  ".", "alias", "case_id", "ensgene", "file_id_tumor", "file_id_normal",
+  "i.id", "i.type", "id", "normal_sample", "query",
+  "sample_id", "symbol", "synonym", "tissue_type", "tumor_sample",
   "type", "type2"
 ))
 

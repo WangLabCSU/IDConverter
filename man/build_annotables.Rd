@@ -7,6 +7,7 @@
 build_annotables(
   recipes = NULL,
   tx2gene = TRUE,
+  include_synonyms = FALSE,
   mirrors = ENSEMBL_MIRRORS,
   cache_dir = getOption("IDConverter.datapath", tempdir()),
   verbose = TRUE
@@ -22,6 +23,10 @@ Recipe names include \code{"grch38"}, \code{"grch37"}, \code{"grcm38"}, \code{"b
 
 \item{tx2gene}{if \code{TRUE} (default), also build transcript-to-gene
 mapping tables (appended with \verb{_tx2gene} suffix).}
+
+\item{include_synonyms}{if \code{TRUE}, also fetch \code{external_synonym} (gene
+name aliases) from BioMart and include a \code{synonym} column in the
+output tables. Default \code{FALSE} for faster queries.}
 
 \item{mirrors}{character vector of Ensembl mirror URLs to try in order.
 The function automatically falls back to the next mirror on failure.}
@@ -46,7 +51,7 @@ available, as an alternative to the fixed-version tables stored on Zenodo.
 }
 \details{
 \strong{Requirements:} This function requires the Bioconductor package
-\CRANpkg{biomaRt}. Install it with:\preformatted{
+\pkg{biomaRt}. Install it with:\preformatted{
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 BiocManager::install("biomaRt")
@@ -71,14 +76,13 @@ all_tables <- build_annotables()
 names(all_tables)
 }
 }
-\seealso{
-\code{\link[=load_data]{load_data()}} for loading fixed-version tables from
-Zenodo, \code{\link[=ls_annotables]{ls_annotables()}} for listing available
-tables.
-}
 \references{
 \itemize{
 \item \url{https://github.com/stephenturner/annotables}
 \item \url{https://useast.ensembl.org/info/data/biomart.html}
 }
+}
+\seealso{
+\code{\link[=load_data]{load_data()}} for loading fixed-version tables from Zenodo,
+\code{\link[=ls_annotables]{ls_annotables()}} for listing available tables.
 }

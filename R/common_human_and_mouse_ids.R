@@ -3,6 +3,12 @@
 #' Supports human (hg38, hg19, T2T), mouse (mm10, mm9), and
 #' worm (ce11, C. elegans) genomes.
 #'
+#' @note
+#' This function matches against **primary** gene symbols only. For
+#' resolving outdated or alternative gene names (aliases like "MLL" → "KMT2A"),
+#' use [build_annotables()] with `include_synonyms = TRUE` followed by
+#' [resolve_gene_aliases()].
+#'
 #' @param IDs a character vector to convert.
 #' @param type type of input `IDs`, could be 'ensembl' or 'symbol'.
 #' @param genome_build reference genome build.
@@ -10,6 +16,7 @@
 #' so multiple identifier mappings can be kept.
 #'
 #' @return a vector or a `data.table`.
+#' @seealso [resolve_gene_aliases()] for resolving gene symbol aliases.
 #' @export
 #'
 #' @examples

@@ -27,6 +27,11 @@
   combinations per case. (#7)
 * `convert_hm_genes()` now supports `ce11` (C. elegans) and `T2T`
   (human T2T/CHM13) genome builds.
+* Added `resolve_gene_aliases()` — resolves outdated or alternative gene
+  symbols (e.g., "MLL" → "KMT2A") using Ensembl synonym data. Requires
+  `build_annotables(include_synonyms = TRUE)` for source data. (#11)
+* `build_annotables()` gains `include_synonyms` parameter to fetch
+  `external_synonym` from Ensembl BioMart.
 
 # IDConverter 0.3.5
 

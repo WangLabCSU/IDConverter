@@ -15,19 +15,16 @@ normal samples over solid tissue normals when both are available
 for the same case.}
 }
 \value{
-a \code{data.frame} (tibble) with columns:
-\itemize{
-\item \code{pair_id} — unique pair identifier (generated from tumor sample ID)
-\item \code{case_id} — TCGA case (patient) ID (first 12 characters of barcode)
-\item \code{tumor_sample} — TCGA tumor sample barcode (first 15 characters),
-\code{NA} if no tumor
-\item \code{normal_sample} — TCGA normal sample barcode (first 15 characters),
-\code{NA} if no normal
-\item \code{file_id_tumor} — GDC file UUID for the tumor sample
-\item \code{file_id_normal} — GDC file UUID for the normal sample
-\item \code{tissue_type} — tissue type string from manifest (e.g.,
-"Blood Derived Normal")
-}
+a \code{data.frame} with columns:
+\item{pair_id}{unique pair identifier (generated from tumor sample ID)}
+\item{case_id}{TCGA case (patient) ID (first 12 characters of barcode)}
+\item{tumor_sample}{TCGA tumor sample barcode (first 15 characters),
+\code{NA} if no tumor for this case}
+\item{normal_sample}{TCGA normal sample barcode (first 15 characters),
+\code{NA} if no normal for this case}
+\item{file_id_tumor}{GDC file UUID for the tumor sample}
+\item{file_id_normal}{GDC file UUID for the normal sample}
+\item{tissue_type}{tissue type string from manifest (e.g. "Blood Derived Normal")}
 }
 \description{
 Parses a GDC manifest file (or result from \code{\link[=parse_gdc_file_uuid]{parse_gdc_file_uuid()}})
@@ -36,16 +33,9 @@ for generating matched pair lists for downstream genomic analyses.
 }
 \details{
 The function identifies tumor vs normal samples based on the TCGA
-barcode: samples with position 14--15 less than \code{"10"} are classified
-as tumor, others as normal.
-
-When both blood-derived and solid tissue normals are available for a
-case, blood normal is preferred by default (\code{prefer_blood_normal = TRUE}).
-
-For cases with multiple tumor aliquots or multiple normals, all
-combinations are generated. Cases with no tumor sample are excluded.
-Cases with tumor but no matched normal are included with \code{NA} in
-the normal columns.
+barcode: samples with position 14-15 less than \code{"10"} are classified
+as tumor, others as normal. When both blood-derived and solid tissue
+normals are available for a case, blood normal is preferred by default.
 }
 \examples{
 \donttest{
@@ -57,7 +47,4 @@ head(info)
 parsed <- parse_gdc_file_uuid("gdc_manifest.txt")
 info <- pair_gdc_samples(parsed)
 }
-}
-\seealso{
-\code{\link[=parse_gdc_file_uuid]{parse_gdc_file_uuid()}} for parsing GDC file UUIDs from a manifest.
 }

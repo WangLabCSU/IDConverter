@@ -15,14 +15,12 @@ typically a \code{data.frame}, depends on \code{x}.
 \description{
 Data are stored in remote \href{https://zenodo.org/records/10360995}{Zenodo repo}.
 This function will help download required data and load it into R.
-For datasets bundled with the package (\code{tcga}, \code{icgc},
-\code{pcawg_full}, \code{pcawg_simple}), local data is used directly
-without network access.
+For datasets bundled with the package (\code{tcga}, \code{icgc}, \code{pcawg_full},
+\code{pcawg_simple}), local data is used directly without network access.
 }
 \note{
 The Zenodo repository contains fixed-version data. For the latest Ensembl
-gene annotations, use \code{\link[=build_annotables]{build_annotables()}} to
-query BioMart directly.
+gene annotations, use \code{\link[=build_annotables]{build_annotables()}} to query BioMart directly.
 }
 \examples{
 \donttest{
