@@ -150,11 +150,12 @@ ANNOTABLES_RECIPES <- list(
 )
 
 # Ensembl mirrors to try in order of preference
+# Note: mirrors are tried sequentially; reorder based on current availability
 ENSEMBL_MIRRORS <- c(
-  "https://useast.ensembl.org",
-  "https://uswest.ensembl.org",
   "https://www.ensembl.org",
-  "https://asia.ensembl.org"
+  "https://asia.ensembl.org",
+  "https://useast.ensembl.org",
+  "https://uswest.ensembl.org"
 )
 
 #' Build Gene Annotation Tables from Ensembl BioMart
