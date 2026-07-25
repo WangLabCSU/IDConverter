@@ -52,10 +52,16 @@
 <li>Added <code><a href="../reference/pair_gdc_samples.html">pair_gdc_samples()</a></code> — pairs tumor-normal samples from GDC manifest files. Automatically classifies tumor vs normal by TCGA barcode, prefers blood-derived normals, and generates all tumor-normal combinations per case. (<a href="https://github.com/WangLabCSU/IDConverter/issues/7" class="external-link">#7</a>)</li>
 <li>
 <code><a href="../reference/convert_hm_genes.html">convert_hm_genes()</a></code> now supports <code>ce11</code> (C. elegans) and <code>T2T</code> (human T2T/CHM13) genome builds.</li>
-<li>Added <code><a href="../reference/resolve_gene_aliases.html">resolve_gene_aliases()</a></code> — resolves outdated or alternative gene symbols (e.g., “MLL” → “KMT2A”) using Ensembl synonym data. Requires <code>build_annotables(include_synonyms = TRUE)</code> for source data. (<a href="https://github.com/WangLabCSU/IDConverter/issues/11" class="external-link">#11</a>)</li>
+<li>Added <code><a href="../reference/resolve_gene_aliases.html">resolve_gene_aliases()</a></code> — resolves outdated or alternative gene symbols (e.g., “MLL” -&gt; “KMT2A”) using Ensembl synonym data. Requires <code>build_annotables(include_synonyms = TRUE)</code> for source data. (<a href="https://github.com/WangLabCSU/IDConverter/issues/11" class="external-link">#11</a>)</li>
 <li>
 <code><a href="../reference/build_annotables.html">build_annotables()</a></code> gains <code>include_synonyms</code> parameter to fetch <code>external_synonym</code> from Ensembl BioMart.</li>
 <li>Added <code><a href="../reference/convert_hm_orthologs.html">convert_hm_orthologs()</a></code> — converts gene symbols or Ensembl IDs between human and mouse via Ensembl orthology (e.g., TP53 &lt;-&gt; Trp53). Supports high-confidence filtering and cached queries.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="other-changes-0-4-0">Other Changes<a class="anchor" aria-label="anchor" href="#other-changes-0-4-0"></a></h3>
+<ul><li>Repository migrated from <code>ShixiangWang/IDConverter</code> to <code>WangLabCSU/IDConverter</code>. All URLs updated in DESCRIPTION, README, pkgdown config, and documentation.</li>
+<li>All Rd files regenerated via <code>devtools::document()</code> for consistency.</li>
+<li>Added <code>IDConverter.Rcheck/</code> to <code>.gitignore</code> and <code>.Rbuildignore</code>.</li>
 </ul></div>
 </div>
     <div class="section level2">

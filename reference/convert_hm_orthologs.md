@@ -100,7 +100,7 @@ convert_hm_orthologs(c("TP53", "KRAS", "EGFR"))
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 3 rows
-#>   Cached to: /tmp/Rtmpqed9np/ortholog_human_to_mouse_symbol_symbol_hc.rda
+#>   Cached to: /tmp/RtmpjrHx83/ortholog_human_to_mouse_symbol_symbol_hc.rda
 #>    TP53    KRAS    EGFR 
 #> "Trp53"  "Kras"  "Egfr" 
 
@@ -116,7 +116,7 @@ convert_hm_orthologs(c("Trp53", "Kras"), from_species = "mouse", to_species = "h
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 2 rows
-#>   Cached to: /tmp/Rtmpqed9np/ortholog_mouse_to_human_symbol_symbol_hc.rda
+#>   Cached to: /tmp/RtmpjrHx83/ortholog_mouse_to_human_symbol_symbol_hc.rda
 #>  Trp53   Kras 
 #> "TP53" "KRAS" 
 
@@ -132,7 +132,7 @@ convert_hm_orthologs("ENSG00000141510", from_type = "ensembl", to_type = "ensemb
 #> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 1 rows
-#>   Cached to: /tmp/Rtmpqed9np/ortholog_human_to_mouse_ensembl_ensembl_hc.rda
+#>   Cached to: /tmp/RtmpjrHx83/ortholog_human_to_mouse_ensembl_ensembl_hc.rda
 #>      ENSG00000141510 
 #> "ENSMUSG00000059552" 
 # }

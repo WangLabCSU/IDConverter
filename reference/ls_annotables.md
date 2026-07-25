@@ -76,7 +76,7 @@ for live Ensembl BioMart queries.
 ``` r
 # \donttest{
 ls_annotables()
-#> Downloading https://zenodo.org/records/10360995/files/ensembl_version.rda to /tmp/Rtmpqed9np/ensembl_version.rda
+#> Downloading https://zenodo.org/records/10360995/files/ensembl_version.rda to /tmp/RtmpjrHx83/ensembl_version.rda
 #> Version: Ensembl Genes 105
 #>  [1] "bdgp6"            "bdgp6_tx2gene"    "galgal5"          "galgal5_tx2gene" 
 #>  [5] "grch37"           "grch37_tx2gene"   "grch38"           "grch38_tx2gene"  

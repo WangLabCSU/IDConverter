@@ -44,7 +44,7 @@
   builds.
 - Added
   [`resolve_gene_aliases()`](https://wanglabcsu.github.io/IDConverter/reference/resolve_gene_aliases.md)
-  — resolves outdated or alternative gene symbols (e.g., “MLL” →
+  — resolves outdated or alternative gene symbols (e.g., “MLL” -\>
   “KMT2A”) using Ensembl synonym data. Requires
   `build_annotables(include_synonyms = TRUE)` for source data.
   ([\#11](https://github.com/WangLabCSU/IDConverter/issues/11))
@@ -56,6 +56,14 @@
   — converts gene symbols or Ensembl IDs between human and mouse via
   Ensembl orthology (e.g., TP53 \<-\> Trp53). Supports high-confidence
   filtering and cached queries.
+
+### Other Changes
+
+- Repository migrated from `ShixiangWang/IDConverter` to
+  `WangLabCSU/IDConverter`. All URLs updated in DESCRIPTION, README,
+  pkgdown config, and documentation.
+- All Rd files regenerated via `devtools::document()` for consistency.
+- Added `IDConverter.Rcheck/` to `.gitignore` and `.Rbuildignore`.
 
 ## IDConverter 0.3.5
 
