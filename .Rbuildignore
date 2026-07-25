@@ -10,3 +10,4 @@ inst/extdata/icgc.rda
 ^docs$
 ^pkgdown$
 ^\.github$
+^IDConverter\.Rcheck$

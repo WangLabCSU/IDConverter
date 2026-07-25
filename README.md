@@ -8,6 +8,7 @@
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/IDConverter?color=orange)](https://cran.r-project.org/package=IDConverter)
+[![R-CMD-check](https://github.com/ShixiangWang/IDConverter/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ShixiangWang/IDConverter/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of IDConverter is to convert identifiers between biological
@@ -35,17 +36,27 @@ remotes::install_git("https://gitee.com/ShixiangWang/IDConverter")
 - `convert_icgc()` - Convert ICGC identifiers.
 - `convert_pcawg()` - Convert PCAWG identifiers.
 - `convert_tcga()` - Convert TCGA identifiers.
-- `convert_hm_genes()` - Convert human/mouse gene IDs between Ensembl
-  and Hugo Symbol system.
+- `convert_hm_genes()` - Convert human/mouse/worm gene IDs between
+  Ensembl and Hugo Symbol system.
+- `convert_hm_orthologs()` - Convert gene IDs between human and mouse
+  via Ensembl orthology (e.g., TP53 ↔ Trp53).
 
-Annotation tables from
-[annotables](https://github.com/stephenturner/annotables) are available
-in this package, you can use `ls_annotables()` to print the table list
-and then use `load_data()` to download and load the data into R for
-conversion operation.
+**Annotation tables**:
 
-**Others**:
+- `ls_annotables()` - List available annotation tables from
+  [annotables](https://github.com/stephenturner/annotables).
+- `load_data()` - Download and load annotation data from Zenodo (fixed
+  version) or from local cache.
+- `build_annotables()` - Build up-to-date gene annotation tables
+  directly from Ensembl BioMart (supports 11 organisms, requires
+  `biomaRt`).
+- `resolve_gene_aliases()` - Resolve outdated/alternative gene symbols
+  (aliases) to official symbols via Ensembl synonym data.
 
+**Utilities**:
+
+- `pair_gdc_samples()` - Pair tumor-normal samples from GDC manifest
+  files.
 - `parse_gdc_file_uuid()` - Parse Metadata from GDC Portal File UUID.
 - `filter_tcga_barcodes()` - Filter TCGA Replicate Sample Barcodes.
 
@@ -93,34 +104,67 @@ x
 
 ``` r
 convert_hm_genes(c("TP53", "KRAS", "EGFR", "MYC"), type = "symbol")
+#> Downloading https://zenodo.org/records/10360995/files/human_hg38_gene_info.rds to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmpMMmC4n/temp_libpath4f1e764f17f3/IDConverter/extdata/human_hg38_gene_info.rds
 #> [1] "ENSG00000141510" "ENSG00000133703" "ENSG00000146648" "ENSG00000136997"
 
 # Or use data from annotables
 ls_annotables()
+#> Downloading https://zenodo.org/records/10360995/files/ensembl_version.rda to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmpMMmC4n/temp_libpath4f1e764f17f3/IDConverter/extdata/ensembl_version.rda
 #> Version: Ensembl Genes 105
 #>  [1] "bdgp6"            "bdgp6_tx2gene"    "galgal5"          "galgal5_tx2gene" 
 #>  [5] "grch37"           "grch37_tx2gene"   "grch38"           "grch38_tx2gene"  
 #>  [9] "grcm38"           "grcm38_tx2gene"   "mmul801"          "mmul801_tx2gene" 
 #> [13] "rnor6"            "rnor6_tx2gene"    "wbcel235"         "wbcel235_tx2gene"
 grch37 = load_data("grch37")
+#> Downloading https://zenodo.org/records/10360995/files/grch37.rda to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmpMMmC4n/temp_libpath4f1e764f17f3/IDConverter/extdata/grch37.rda
 head(grch37)
-#>           ensgene entrez   symbol chr     start       end strand        biotype
-#> 1 ENSG00000000003   7105   TSPAN6   X 100627108 100639991     -1 protein_coding
-#> 2 ENSG00000000005  64102     TNMD   X 100584936 100599885      1 protein_coding
-#> 3 ENSG00000000419   8813     DPM1  20  50934867  50959140     -1 protein_coding
-#> 4 ENSG00000000457  57147    SCYL3   1 169849631 169894267     -1 protein_coding
-#> 5 ENSG00000000460  55732 C1orf112   1 169662007 169854080      1 protein_coding
-#> 6 ENSG00000000938   2268      FGR   1  27612064  27635185     -1 protein_coding
-#>                                                   description
-#> 1                                               tetraspanin 6
-#> 2                                                 tenomodulin
-#> 3 dolichyl-phosphate mannosyltransferase subunit 1, catalytic
-#> 4                                    SCY1 like pseudokinase 3
-#> 5                         chromosome 1 open reading frame 112
-#> 6              FGR proto-oncogene, Src family tyrosine kinase
+#> # A tibble: 6 × 9
+#>   ensgene         entrez symbol   chr    start    end strand biotype description
+#>   <chr>            <int> <chr>    <chr>  <int>  <int>  <int> <chr>   <chr>      
+#> 1 ENSG00000000003   7105 TSPAN6   X     1.01e8 1.01e8     -1 protei… tetraspani…
+#> 2 ENSG00000000005  64102 TNMD     X     1.01e8 1.01e8      1 protei… tenomodulin
+#> 3 ENSG00000000419   8813 DPM1     20    5.09e7 5.10e7     -1 protei… dolichyl-p…
+#> 4 ENSG00000000457  57147 SCYL3    1     1.70e8 1.70e8     -1 protei… SCY1 like …
+#> 5 ENSG00000000460  55732 C1orf112 1     1.70e8 1.70e8      1 protei… chromosome…
+#> 6 ENSG00000000938   2268 FGR      1     2.76e7 2.76e7     -1 protei… FGR proto-…
 convert_custom(c("TP53", "KRAS", "EGFR", "MYC"),
                from = "symbol", to = "entrez", dt = grch37)
 #> [1] "7157" "3845" "1956" "4609"
+```
+
+### Human-Mouse Orthologs
+
+``` r
+# Human → Mouse
+convert_hm_orthologs(c("TP53", "KRAS", "EGFR", "MYC"))
+# => Trp53, Kras, Egfr, Myc
+
+# Mouse → Human
+convert_hm_orthologs(c("Trp53", "Kras"), from_species = "mouse", to_species = "human")
+# => TP53, KRAS
+
+# Ensembl ID mapping
+convert_hm_orthologs("ENSG00000141510", from_type = "ensembl", to_type = "ensembl")
+# => ENSMUSG00000059552
+```
+
+### Gene Symbol Aliases
+
+``` r
+# Build annotation table with synonym support
+ann <- build_annotables("grch38", include_synonyms = TRUE, tx2gene = FALSE)
+
+# Resolve aliases (e.g., old names → official symbols)
+resolve_gene_aliases(c("TP53", "T245", "MLL"), ann[[1]])
+# T245 → TSPAN6, MLL → KMT2A (if in synonym data)
+```
+
+### GDC Manifest Pairing
+
+``` r
+# Pair tumor-normal samples from a GDC manifest file
+info <- pair_gdc_samples("gdc_manifest.txt")
+head(info)
 ```
 
 ## Citation

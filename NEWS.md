@@ -32,6 +32,9 @@
   `build_annotables(include_synonyms = TRUE)` for source data. (#11)
 * `build_annotables()` gains `include_synonyms` parameter to fetch
   `external_synonym` from Ensembl BioMart.
+* Added `convert_hm_orthologs()` — converts gene symbols or Ensembl IDs
+  between human and mouse via Ensembl orthology (e.g., TP53 <-> Trp53).
+  Supports high-confidence filtering and cached queries.
 
 # IDConverter 0.3.5
 

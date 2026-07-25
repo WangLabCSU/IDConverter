@@ -46,14 +46,21 @@ remotes::install_git("https://gitee.com/ShixiangWang/IDConverter")
 - `convert_icgc()` - Convert ICGC identifiers.
 - `convert_pcawg()` - Convert PCAWG identifiers.
 - `convert_tcga()` - Convert TCGA identifiers.
-- `convert_hm_genes()` - Convert human/mouse gene IDs between Ensembl and Hugo Symbol system.
+- `convert_hm_genes()` - Convert human/mouse/worm gene IDs between Ensembl and Hugo Symbol system.
+- `convert_hm_orthologs()` - Convert gene IDs between human and mouse via Ensembl orthology (e.g., TP53 ↔ Trp53).
 
-Annotation tables from [annotables](https://github.com/stephenturner/annotables) are available
-in this package, you can use `ls_annotables()` to print the table list and then use
-`load_data()` to download and load the data into R for conversion operation.
+**Annotation tables**:
 
-**Others**:
+- `ls_annotables()` - List available annotation tables from [annotables](https://github.com/stephenturner/annotables).
+- `load_data()` - Download and load annotation data from Zenodo (fixed version) or from local cache.
+- `build_annotables()` - Build up-to-date gene annotation tables directly from Ensembl BioMart
+  (supports 11 organisms, requires `biomaRt`).
+- `resolve_gene_aliases()` - Resolve outdated/alternative gene symbols (aliases) to official
+  symbols via Ensembl synonym data.
 
+**Utilities**:
+
+- `pair_gdc_samples()` - Pair tumor-normal samples from GDC manifest files.
 - `parse_gdc_file_uuid()` - Parse Metadata from GDC Portal File UUID.
 - `filter_tcga_barcodes()` - Filter TCGA Replicate Sample Barcodes.
 
@@ -107,6 +114,40 @@ convert_custom(c("TP53", "KRAS", "EGFR", "MYC"),
                from = "symbol", to = "entrez", dt = grch37)
 ```
 
+### Human-Mouse Orthologs
+
+```{r eval=FALSE}
+# Human → Mouse
+convert_hm_orthologs(c("TP53", "KRAS", "EGFR", "MYC"))
+# => Trp53, Kras, Egfr, Myc
+
+# Mouse → Human
+convert_hm_orthologs(c("Trp53", "Kras"), from_species = "mouse", to_species = "human")
+# => TP53, KRAS
+
+# Ensembl ID mapping
+convert_hm_orthologs("ENSG00000141510", from_type = "ensembl", to_type = "ensembl")
+# => ENSMUSG00000059552
+```
+
+### Gene Symbol Aliases
+
+```{r eval=FALSE}
+# Build annotation table with synonym support
+ann <- build_annotables("grch38", include_synonyms = TRUE, tx2gene = FALSE)
+
+# Resolve aliases (e.g., old names → official symbols)
+resolve_gene_aliases(c("TP53", "T245", "MLL"), ann[[1]])
+# T245 → TSPAN6, MLL → KMT2A (if in synonym data)
+```
+
+### GDC Manifest Pairing
+
+```{r eval=FALSE}
+# Pair tumor-normal samples from a GDC manifest file
+info <- pair_gdc_samples("gdc_manifest.txt")
+head(info)
+```
 
 ## Citation
 
