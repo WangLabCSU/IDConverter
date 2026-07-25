@@ -53,8 +53,8 @@ for generating matched pair lists for downstream genomic analyses.</p>
 
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>a path to a GDC manifest file, or a <code>data.frame</code> returned
-by <code><a href="parse_gdc_file_uuid.html">parse_gdc_file_uuid()</a></code>.</p></dd>
+<dd><p>a path to a GDC manifest file, a vector of GDC file UUIDs,
+or a <code>data.frame</code> returned by <code><a href="parse_gdc_file_uuid.html">parse_gdc_file_uuid()</a></code>.</p></dd>
 
 
 <dt id="arg-prefer-blood-normal">prefer_blood_normal<a class="anchor" aria-label="anchor" href="#arg-prefer-blood-normal"></a></dt>
@@ -100,19 +100,27 @@ normals are available for a case, blood normal is preferred by default.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="co"># From a GDC manifest file</span></span></span>
-<span class="r-in"><span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu">pair_gdc_samples</span><span class="op">(</span><span class="st">"gdc_manifest.txt"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> `x` must be a path to a GDC manifest file or a data.frame returned by parse_gdc_file_uuid().</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">info</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'info' not found</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Mock data example (works offline)</span></span></span>
+<span class="r-in"><span><span class="va">mock</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  submitter_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TCGA-02-0001-01B-02D-A271-08"</span>,</span></span>
+<span class="r-in"><span>                   <span class="st">"TCGA-02-0001-10B-01D-A273-01"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  sample_type  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Primary Tumor"</span>, <span class="st">"Blood Derived Normal"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  file_id      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fe522fc8-e690-49b9-b3b6-fa3658705057"</span>,</span></span>
+<span class="r-in"><span>                   <span class="st">"2c16506f-1110-4d60-81e3-a85233c79909"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">pair_gdc_samples</span><span class="op">(</span><span class="va">mock</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   pair_id        case_id tumor_sample normal_sample file_id_tumor file_id_normal</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> TCGA-02-0001-… TCGA-0… TCGA-02-000… TCGA-02-0001… fe522fc8-e69… 2c16506f-1110…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1 more variable: tissue_type &lt;chr&gt;</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># From a parse_gdc_file_uuid result</span></span></span>
-<span class="r-in"><span><span class="va">parsed</span> <span class="op">&lt;-</span> <span class="fu"><a href="parse_gdc_file_uuid.html">parse_gdc_file_uuid</a></span><span class="op">(</span><span class="st">"gdc_manifest.txt"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in parse_gdc_file_uuid("gdc_manifest.txt"):</span> it seems your input file path does not exist!</span>
-<span class="r-in"><span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu">pair_gdc_samples</span><span class="op">(</span><span class="va">parsed</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'parsed' not found</span>
-<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="co"># From a real GDC manifest file</span></span></span>
+<span class="r-in"><span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu">pair_gdc_samples</span><span class="op">(</span><span class="st">"gdc_manifest.txt"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">info</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

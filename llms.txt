@@ -12,7 +12,7 @@ Install the latest version of IDConverter in GitHub with:
 remotes::install_github("WangLabCSU/IDConverter")
 ```
 
-Or Gitee (better in China, but not updated anymore):
+Or Gitee (better in China, but updates may lag behind):
 
 ``` r
 
