@@ -54,16 +54,9 @@ query may appear in multiple rows.
 # Build annotables with synonym support
 ann <- build_annotables("grch38", include_synonyms = TRUE, tx2gene = FALSE)
 #> --- Building: grch38 ---
-#>   Trying mirror: https://useast.ensembl.org
-#>     Failed: HTTP 403 Forbidden.
-#>   Trying mirror: https://uswest.ensembl.org
-#>     Failed: Failed to perform HTTP request.
-#> Caused by error in `curl::curl_fetch_memory()`:
-#> ! SSL peer certificate or SSH remote key was not OK [uswest.ensembl.org]:
-#> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 133458 rows
-#>   Cached to: /tmp/Rtmp8YevTQ/grch38_syn.rda
+#>   Cached to: /tmp/Rtmpu9e9wx/grch38_syn.rda
 #> 
 #> Successfully built 1 table(s). Use names() to see available tables.
 

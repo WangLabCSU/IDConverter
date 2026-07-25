@@ -134,48 +134,27 @@ a <code>data.frame</code>.</p>
 <span class="r-in"><span><span class="co"># Human symbol -&gt; mouse symbol</span></span></span>
 <span class="r-in"><span><span class="fu">convert_hm_orthologs</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TP53"</span>, <span class="st">"KRAS"</span>, <span class="st">"EGFR"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Querying Ensembl BioMart for human-&gt;mouse orthologs...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   Trying mirror: https://useast.ensembl.org</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Failed: HTTP 403 Forbidden.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   Trying mirror: https://uswest.ensembl.org</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Failed: Failed to perform HTTP request.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> SSL peer certificate or SSH remote key was not OK [uswest.ensembl.org]:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> SSL certificate problem: certificate has expired</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Trying mirror: https://www.ensembl.org</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     OK: 3 rows</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   Cached to: /tmp/Rtmp8YevTQ/ortholog_human_to_mouse_symbol_symbol_hc.rda</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Cached to: /tmp/Rtmpu9e9wx/ortholog_human_to_mouse_symbol_symbol_hc.rda</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    TP53    KRAS    EGFR </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> "Trp53"  "Kras"  "Egfr" </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Mouse symbol -&gt; human symbol</span></span></span>
 <span class="r-in"><span><span class="fu">convert_hm_orthologs</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Trp53"</span>, <span class="st">"Kras"</span><span class="op">)</span>, from_species <span class="op">=</span> <span class="st">"mouse"</span>, to_species <span class="op">=</span> <span class="st">"human"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Querying Ensembl BioMart for mouse-&gt;human orthologs...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   Trying mirror: https://useast.ensembl.org</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Failed: HTTP 403 Forbidden.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   Trying mirror: https://uswest.ensembl.org</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Failed: Failed to perform HTTP request.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> SSL peer certificate or SSH remote key was not OK [uswest.ensembl.org]:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> SSL certificate problem: certificate has expired</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Trying mirror: https://www.ensembl.org</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     OK: 2 rows</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   Cached to: /tmp/Rtmp8YevTQ/ortholog_mouse_to_human_symbol_symbol_hc.rda</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Cached to: /tmp/Rtmpu9e9wx/ortholog_mouse_to_human_symbol_symbol_hc.rda</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Trp53   Kras </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> "TP53" "KRAS" </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Human Ensembl -&gt; mouse Ensembl</span></span></span>
 <span class="r-in"><span><span class="fu">convert_hm_orthologs</span><span class="op">(</span><span class="st">"ENSG00000141510"</span>, from_type <span class="op">=</span> <span class="st">"ensembl"</span>, to_type <span class="op">=</span> <span class="st">"ensembl"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Querying Ensembl BioMart for human-&gt;mouse orthologs...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   Trying mirror: https://useast.ensembl.org</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Failed: HTTP 403 Forbidden.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   Trying mirror: https://uswest.ensembl.org</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Failed: Failed to perform HTTP request.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> SSL peer certificate or SSH remote key was not OK [uswest.ensembl.org]:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> SSL certificate problem: certificate has expired</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Trying mirror: https://www.ensembl.org</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     OK: 1 rows</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   Cached to: /tmp/Rtmp8YevTQ/ortholog_human_to_mouse_ensembl_ensembl_hc.rda</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Cached to: /tmp/Rtmpu9e9wx/ortholog_human_to_mouse_ensembl_ensembl_hc.rda</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      ENSG00000141510 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> "ENSMUSG00000059552" </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

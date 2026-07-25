@@ -91,48 +91,27 @@ Orthology data is queried live from Ensembl and cached locally.
 # Human symbol -> mouse symbol
 convert_hm_orthologs(c("TP53", "KRAS", "EGFR"))
 #> Querying Ensembl BioMart for human->mouse orthologs...
-#>   Trying mirror: https://useast.ensembl.org
-#>     Failed: HTTP 403 Forbidden.
-#>   Trying mirror: https://uswest.ensembl.org
-#>     Failed: Failed to perform HTTP request.
-#> Caused by error in `curl::curl_fetch_memory()`:
-#> ! SSL peer certificate or SSH remote key was not OK [uswest.ensembl.org]:
-#> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 3 rows
-#>   Cached to: /tmp/Rtmp8YevTQ/ortholog_human_to_mouse_symbol_symbol_hc.rda
+#>   Cached to: /tmp/Rtmpu9e9wx/ortholog_human_to_mouse_symbol_symbol_hc.rda
 #>    TP53    KRAS    EGFR 
 #> "Trp53"  "Kras"  "Egfr" 
 
 # Mouse symbol -> human symbol
 convert_hm_orthologs(c("Trp53", "Kras"), from_species = "mouse", to_species = "human")
 #> Querying Ensembl BioMart for mouse->human orthologs...
-#>   Trying mirror: https://useast.ensembl.org
-#>     Failed: HTTP 403 Forbidden.
-#>   Trying mirror: https://uswest.ensembl.org
-#>     Failed: Failed to perform HTTP request.
-#> Caused by error in `curl::curl_fetch_memory()`:
-#> ! SSL peer certificate or SSH remote key was not OK [uswest.ensembl.org]:
-#> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 2 rows
-#>   Cached to: /tmp/Rtmp8YevTQ/ortholog_mouse_to_human_symbol_symbol_hc.rda
+#>   Cached to: /tmp/Rtmpu9e9wx/ortholog_mouse_to_human_symbol_symbol_hc.rda
 #>  Trp53   Kras 
 #> "TP53" "KRAS" 
 
 # Human Ensembl -> mouse Ensembl
 convert_hm_orthologs("ENSG00000141510", from_type = "ensembl", to_type = "ensembl")
 #> Querying Ensembl BioMart for human->mouse orthologs...
-#>   Trying mirror: https://useast.ensembl.org
-#>     Failed: HTTP 403 Forbidden.
-#>   Trying mirror: https://uswest.ensembl.org
-#>     Failed: Failed to perform HTTP request.
-#> Caused by error in `curl::curl_fetch_memory()`:
-#> ! SSL peer certificate or SSH remote key was not OK [uswest.ensembl.org]:
-#> SSL certificate problem: certificate has expired
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 1 rows
-#>   Cached to: /tmp/Rtmp8YevTQ/ortholog_human_to_mouse_ensembl_ensembl_hc.rda
+#>   Cached to: /tmp/Rtmpu9e9wx/ortholog_human_to_mouse_ensembl_ensembl_hc.rda
 #>      ENSG00000141510 
 #> "ENSMUSG00000059552" 
 # }
