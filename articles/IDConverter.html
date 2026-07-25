@@ -99,7 +99,15 @@ databases. Core use cases:</p>
 <span></span>
 <span><span class="co"># PCAWG specimen → donor</span></span>
 <span><span class="fu"><a href="../reference/convert_pcawg.html">convert_pcawg</a></span><span class="op">(</span><span class="st">"SP1677"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "DO804"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "DO804"</span></span>
+<span></span>
+<span><span class="co"># Custom database</span></span>
+<span><span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/data.table.html" class="external-link">data.table</a></span><span class="op">(</span></span>
+<span>  UpperCase <span class="op">=</span> <span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>,</span>
+<span>  LowerCase <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/convert_custom.html">convert_custom</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"E"</span><span class="op">)</span>, from <span class="op">=</span> <span class="st">"UpperCase"</span>, to <span class="op">=</span> <span class="st">"LowerCase"</span>, dt <span class="op">=</span> <span class="va">dt</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "b" "c" "e"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="gene-id-conversion">Gene ID Conversion<a class="anchor" aria-label="anchor" href="#gene-id-conversion"></a>
@@ -126,17 +134,6 @@ databases. Core use cases:</p>
 <span></span>
 <span><span class="co"># Or build from Ensembl BioMart (latest, requires biomaRt + internet)</span></span>
 <span><span class="va">grch38_latest</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/build_annotables.html">build_annotables</a></span><span class="op">(</span><span class="st">"grch38"</span>, tx2gene <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="working-with-custom-databases">Working with Custom Databases<a class="anchor" aria-label="anchor" href="#working-with-custom-databases"></a>
-</h2>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/data.table.html" class="external-link">data.table</a></span><span class="op">(</span></span>
-<span>  UpperCase <span class="op">=</span> <span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>,</span>
-<span>  LowerCase <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
-<span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/convert_custom.html">convert_custom</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"E"</span><span class="op">)</span>, from <span class="op">=</span> <span class="st">"UpperCase"</span>, to <span class="op">=</span> <span class="st">"LowerCase"</span>, dt <span class="op">=</span> <span class="va">dt</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "b" "c" "e"</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

@@ -28,6 +28,14 @@ convert_icgc("SP29019")
 # PCAWG specimen → donor
 convert_pcawg("SP1677")
 #> [1] "DO804"
+
+# Custom database
+dt <- data.table::data.table(
+  UpperCase = LETTERS[1:5],
+  LowerCase = letters[1:5]
+)
+convert_custom(c("B", "C", "E"), from = "UpperCase", to = "LowerCase", dt = dt)
+#> [1] "b" "c" "e"
 ```
 
 ## Gene ID Conversion
@@ -56,16 +64,4 @@ grch38 <- load_data("grch38")
 
 # Or build from Ensembl BioMart (latest, requires biomaRt + internet)
 grch38_latest <- build_annotables("grch38", tx2gene = FALSE)
-```
-
-## Working with Custom Databases
-
-``` r
-
-dt <- data.table::data.table(
-  UpperCase = LETTERS[1:5],
-  LowerCase = letters[1:5]
-)
-convert_custom(c("B", "C", "E"), from = "UpperCase", to = "LowerCase", dt = dt)
-#> [1] "b" "c" "e"
 ```
