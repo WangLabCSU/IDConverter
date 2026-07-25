@@ -22,8 +22,11 @@ Imports:
 Suggests:
     biomaRt,
     covr,
+    knitr,
     readr,
     testthat
+VignetteBuilder:
+    knitr
 biocViews:
 Encoding: UTF-8
 LazyData: true
