@@ -24,6 +24,7 @@ Suggests:
     covr,
     knitr,
     readr,
+    rmarkdown,
     testthat
 VignetteBuilder:
     knitr
