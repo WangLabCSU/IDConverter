@@ -2,6 +2,8 @@
 
 ## IDConverter 0.4.0
 
+CRAN release: 2026-07-25
+
 ### CRAN Resubmission
 
 - Bundled real data files in `data/` (tcga, icgc, pcawg_full,

@@ -61,11 +61,14 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Install the latest version of IDConverter in GitHub with:</p>
+<p>You can install IDConverter from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"IDConverter"</span><span class="op">)</span></span></code></pre></div>
+<p>Or install the development version from GitHub:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"WangLabCSU/IDConverter"</span><span class="op">)</span></span></code></pre></div>
 <p>Or Gitee (better in China, but updates may lag behind):</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_git</span><span class="op">(</span><span class="st">"https://gitee.com/ShixiangWang/IDConverter"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -110,16 +113,16 @@
 <div class="section level2">
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/WangLabCSU/IDConverter" class="external-link">IDConverter</a></span><span class="op">)</span></span></code></pre></div>
 <p>To follow the CRAN policy, I have to set <code><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir()</a></code> as default data path, however, I recommend you set the data path to a specified path with <code>options(IDConverter.datapath)</code>.</p>
 <p>e.g.,</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>IDConverter.datapath <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, package <span class="op">=</span> <span class="st">"IDConverter"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="tcga">TCGA<a class="anchor" aria-label="anchor" href="#tcga"></a>
 </h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/convert_tcga.html">convert_tcga</a></span><span class="op">(</span><span class="st">"TCGA-02-0001-10"</span><span class="op">)</span></span>
 <span><span class="va">x</span></span>
 <span><span class="co">#&gt; [1] "TCGA-02-0001"</span></span></code></pre></div>
@@ -127,7 +130,7 @@
 <div class="section level3">
 <h3 id="pcawg">PCAWG<a class="anchor" aria-label="anchor" href="#pcawg"></a>
 </h3>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/convert_pcawg.html">convert_pcawg</a></span><span class="op">(</span><span class="st">"SP1677"</span><span class="op">)</span></span>
 <span><span class="va">x</span></span>
 <span><span class="co">#&gt; [1] "DO804"</span></span></code></pre></div>
@@ -135,7 +138,7 @@
 <div class="section level3">
 <h3 id="icgc">ICGC<a class="anchor" aria-label="anchor" href="#icgc"></a>
 </h3>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/convert_icgc.html">convert_icgc</a></span><span class="op">(</span><span class="st">"SP29019"</span><span class="op">)</span></span>
 <span><span class="va">x</span></span>
 <span><span class="co">#&gt; [1] "DO13695"</span></span></code></pre></div>
@@ -143,21 +146,21 @@
 <div class="section level3">
 <h3 id="genes">Genes<a class="anchor" aria-label="anchor" href="#genes"></a>
 </h3>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/convert_hm_genes.html">convert_hm_genes</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TP53"</span>, <span class="st">"KRAS"</span>, <span class="st">"EGFR"</span>, <span class="st">"MYC"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"symbol"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Downloading https://zenodo.org/records/10360995/files/human_hg38_gene_info.rds to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmpMMmC4n/temp_libpath4f1e764f17f3/IDConverter/extdata/human_hg38_gene_info.rds</span></span>
+<span><span class="co">#&gt; Downloading https://zenodo.org/records/10360995/files/human_hg38_gene_info.rds to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmplHcuKU/temp_libpath13eb7262c040d/IDConverter/extdata/human_hg38_gene_info.rds</span></span>
 <span><span class="co">#&gt; [1] "ENSG00000141510" "ENSG00000133703" "ENSG00000146648" "ENSG00000136997"</span></span>
 <span></span>
 <span><span class="co"># Or use data from annotables</span></span>
 <span><span class="fu"><a href="reference/ls_annotables.html">ls_annotables</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Downloading https://zenodo.org/records/10360995/files/ensembl_version.rda to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmpMMmC4n/temp_libpath4f1e764f17f3/IDConverter/extdata/ensembl_version.rda</span></span>
+<span><span class="co">#&gt; Downloading https://zenodo.org/records/10360995/files/ensembl_version.rda to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmplHcuKU/temp_libpath13eb7262c040d/IDConverter/extdata/ensembl_version.rda</span></span>
 <span><span class="co">#&gt; Version: Ensembl Genes 105</span></span>
 <span><span class="co">#&gt;  [1] "bdgp6"            "bdgp6_tx2gene"    "galgal5"          "galgal5_tx2gene" </span></span>
 <span><span class="co">#&gt;  [5] "grch37"           "grch37_tx2gene"   "grch38"           "grch38_tx2gene"  </span></span>
 <span><span class="co">#&gt;  [9] "grcm38"           "grcm38_tx2gene"   "mmul801"          "mmul801_tx2gene" </span></span>
 <span><span class="co">#&gt; [13] "rnor6"            "rnor6_tx2gene"    "wbcel235"         "wbcel235_tx2gene"</span></span>
 <span><span class="va">grch37</span> <span class="op">=</span> <span class="fu"><a href="reference/load_data.html">load_data</a></span><span class="op">(</span><span class="st">"grch37"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Downloading https://zenodo.org/records/10360995/files/grch37.rda to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmpMMmC4n/temp_libpath4f1e764f17f3/IDConverter/extdata/grch37.rda</span></span>
+<span><span class="co">#&gt; Downloading https://zenodo.org/records/10360995/files/grch37.rda to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmplHcuKU/temp_libpath13eb7262c040d/IDConverter/extdata/grch37.rda</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">grch37</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 9</span></span>
 <span><span class="co">#&gt;   ensgene         entrez symbol   chr    start    end strand biotype description</span></span>
@@ -175,7 +178,7 @@
 <div class="section level3">
 <h3 id="human-mouse-orthologs">Human-Mouse Orthologs<a class="anchor" aria-label="anchor" href="#human-mouse-orthologs"></a>
 </h3>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Human → Mouse</span></span>
 <span><span class="fu"><a href="reference/convert_hm_orthologs.html">convert_hm_orthologs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TP53"</span>, <span class="st">"KRAS"</span>, <span class="st">"EGFR"</span>, <span class="st">"MYC"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co"># =&gt; Trp53, Kras, Egfr, Myc</span></span>
@@ -191,7 +194,7 @@
 <div class="section level3">
 <h3 id="gene-symbol-aliases">Gene Symbol Aliases<a class="anchor" aria-label="anchor" href="#gene-symbol-aliases"></a>
 </h3>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Build annotation table with synonym support</span></span>
 <span><span class="va">ann</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/build_annotables.html">build_annotables</a></span><span class="op">(</span><span class="st">"grch38"</span>, include_synonyms <span class="op">=</span> <span class="cn">TRUE</span>, tx2gene <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
@@ -202,7 +205,7 @@
 <div class="section level3">
 <h3 id="gdc-manifest-pairing">GDC Manifest Pairing<a class="anchor" aria-label="anchor" href="#gdc-manifest-pairing"></a>
 </h3>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Pair tumor-normal samples from a GDC manifest file</span></span>
 <span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/pair_gdc_samples.html">pair_gdc_samples</a></span><span class="op">(</span><span class="st">"gdc_manifest.txt"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">info</span><span class="op">)</span></span></code></pre></div>

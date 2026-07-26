@@ -103,7 +103,7 @@ grch38 <- build_annotables("grch38", tx2gene = FALSE)
 #> --- Building: grch38 ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 91743 rows
-#>   Cached to: /tmp/RtmpLr937O/grch38.rda
+#>   Cached to: /tmp/RtmpafruHB/grch38.rda
 #> 
 #> Successfully built 1 table(s). Use names() to see available tables.
 head(grch38[[1]])
@@ -120,93 +120,91 @@ head(grch38[[1]])
 # Build all available tables (requires internet + biomaRt)
 all_tables <- build_annotables()
 #> --- Building: grch38 ---
-#>   Loading from cache: /tmp/RtmpLr937O/grch38.rda
+#>   Loading from cache: /tmp/RtmpafruHB/grch38.rda
 #> --- Building: grch37 ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 91743 rows
-#>   Cached to: /tmp/RtmpLr937O/grch37.rda
+#>   Cached to: /tmp/RtmpafruHB/grch37.rda
 #> --- Building: grcm38 ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 78718 rows
-#>   Cached to: /tmp/RtmpLr937O/grcm38.rda
+#>   Cached to: /tmp/RtmpafruHB/grcm38.rda
 #> --- Building: rnor6 ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 57760 rows
-#>   Cached to: /tmp/RtmpLr937O/rnor6.rda
+#>   Cached to: /tmp/RtmpafruHB/rnor6.rda
 #> --- Building: bdgp6 ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 28759 rows
-#>   Cached to: /tmp/RtmpLr937O/bdgp6.rda
+#>   Cached to: /tmp/RtmpafruHB/bdgp6.rda
 #> --- Building: galgal5 ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 34332 rows
-#>   Cached to: /tmp/RtmpLr937O/galgal5.rda
+#>   Cached to: /tmp/RtmpafruHB/galgal5.rda
 #> --- Building: mmul801 ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 37169 rows
-#>   Cached to: /tmp/RtmpLr937O/mmul801.rda
+#>   Cached to: /tmp/RtmpafruHB/mmul801.rda
 #> --- Building: wbcel235 ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 46926 rows
-#>   Cached to: /tmp/RtmpLr937O/wbcel235.rda
+#>   Cached to: /tmp/RtmpafruHB/wbcel235.rda
 #> --- Building: cfamiliaris ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 34012 rows
-#>   Cached to: /tmp/RtmpLr937O/cfamiliaris.rda
+#>   Cached to: /tmp/RtmpafruHB/cfamiliaris.rda
 #> --- Building: drerio ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 92137 rows
-#>   Cached to: /tmp/RtmpLr937O/drerio.rda
+#>   Cached to: /tmp/RtmpafruHB/drerio.rda
 #> --- Building: sscrofa ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 35819 rows
-#>   Cached to: /tmp/RtmpLr937O/sscrofa.rda
+#>   Cached to: /tmp/RtmpafruHB/sscrofa.rda
 #> --- Building: grch38_tx2gene ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 670670 rows
-#>   Cached to: /tmp/RtmpLr937O/grch38_tx2gene.rda
+#>   Cached to: /tmp/RtmpafruHB/grch38_tx2gene.rda
 #> --- Building: grch37_tx2gene ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 670670 rows
-#>   Cached to: /tmp/RtmpLr937O/grch37_tx2gene.rda
+#>   Cached to: /tmp/RtmpafruHB/grch37_tx2gene.rda
 #> --- Building: grcm38_tx2gene ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 481956 rows
-#>   Cached to: /tmp/RtmpLr937O/grcm38_tx2gene.rda
+#>   Cached to: /tmp/RtmpafruHB/grcm38_tx2gene.rda
 #> --- Building: rnor6_tx2gene ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 95472 rows
-#>   Cached to: /tmp/RtmpLr937O/rnor6_tx2gene.rda
+#>   Cached to: /tmp/RtmpafruHB/rnor6_tx2gene.rda
 #> --- Building: bdgp6_tx2gene ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 41600 rows
-#>   Cached to: /tmp/RtmpLr937O/bdgp6_tx2gene.rda
+#>   Cached to: /tmp/RtmpafruHB/bdgp6_tx2gene.rda
 #> --- Building: galgal5_tx2gene ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 72689 rows
-#>   Cached to: /tmp/RtmpLr937O/galgal5_tx2gene.rda
+#>   Cached to: /tmp/RtmpafruHB/galgal5_tx2gene.rda
 #> --- Building: mmul801_tx2gene ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 64228 rows
-#>   Cached to: /tmp/RtmpLr937O/mmul801_tx2gene.rda
+#>   Cached to: /tmp/RtmpafruHB/mmul801_tx2gene.rda
 #> --- Building: wbcel235_tx2gene ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 60000 rows
-#>   Cached to: /tmp/RtmpLr937O/wbcel235_tx2gene.rda
+#>   Cached to: /tmp/RtmpafruHB/wbcel235_tx2gene.rda
 #> --- Building: cfamiliaris_tx2gene ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 55335 rows
-#>   Cached to: /tmp/RtmpLr937O/cfamiliaris_tx2gene.rda
+#>   Cached to: /tmp/RtmpafruHB/cfamiliaris_tx2gene.rda
 #> --- Building: drerio_tx2gene ---
 #>   Trying mirror: https://www.ensembl.org
 #>     OK: 65905 rows
-#>   Cached to: /tmp/RtmpLr937O/drerio_tx2gene.rda
+#>   Cached to: /tmp/RtmpafruHB/drerio_tx2gene.rda
 #> --- Building: sscrofa_tx2gene ---
 #>   Trying mirror: https://www.ensembl.org
-#>     Failed: HTTP 405 Method Not Allowed.
-#>   Trying mirror: https://asia.ensembl.org
 #>     OK: 60440 rows
-#>   Cached to: /tmp/RtmpLr937O/sscrofa_tx2gene.rda
+#>   Cached to: /tmp/RtmpafruHB/sscrofa_tx2gene.rda
 #> 
 #> Successfully built 22 table(s). Use names() to see available tables.
 names(all_tables)

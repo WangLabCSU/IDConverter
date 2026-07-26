@@ -56,7 +56,7 @@ for resolving gene symbol aliases.
 ``` r
 # \donttest{
 convert_hm_genes("ENSG00000243485")
-#> Downloading https://zenodo.org/records/10360995/files/human_hg38_gene_info.rds to /tmp/RtmpLr937O/human_hg38_gene_info.rds
+#> Downloading https://zenodo.org/records/10360995/files/human_hg38_gene_info.rds to /tmp/RtmpafruHB/human_hg38_gene_info.rds
 #> [1] "MIR1302-2HG"
 convert_hm_genes("ENSG00000243485", multiple = TRUE)
 #>               from          to
