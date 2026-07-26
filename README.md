@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/IDConverter)](https://cran.r-project.org/package=IDConverter)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/IDConverter?color=orange)](https://cran.r-project.org/package=IDConverter)
@@ -16,7 +18,13 @@ databases. Currently, I mainly use it for promoting cancer study.
 
 ## Installation
 
-Install the latest version of IDConverter in GitHub with:
+You can install IDConverter from CRAN:
+
+``` r
+install.packages("IDConverter")
+```
+
+Or install the development version from GitHub:
 
 ``` r
 remotes::install_github("WangLabCSU/IDConverter")
@@ -104,19 +112,19 @@ x
 
 ``` r
 convert_hm_genes(c("TP53", "KRAS", "EGFR", "MYC"), type = "symbol")
-#> Downloading https://zenodo.org/records/10360995/files/human_hg38_gene_info.rds to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmpMMmC4n/temp_libpath4f1e764f17f3/IDConverter/extdata/human_hg38_gene_info.rds
+#> Downloading https://zenodo.org/records/10360995/files/human_hg38_gene_info.rds to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmplHcuKU/temp_libpath13eb7262c040d/IDConverter/extdata/human_hg38_gene_info.rds
 #> [1] "ENSG00000141510" "ENSG00000133703" "ENSG00000146648" "ENSG00000136997"
 
 # Or use data from annotables
 ls_annotables()
-#> Downloading https://zenodo.org/records/10360995/files/ensembl_version.rda to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmpMMmC4n/temp_libpath4f1e764f17f3/IDConverter/extdata/ensembl_version.rda
+#> Downloading https://zenodo.org/records/10360995/files/ensembl_version.rda to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmplHcuKU/temp_libpath13eb7262c040d/IDConverter/extdata/ensembl_version.rda
 #> Version: Ensembl Genes 105
 #>  [1] "bdgp6"            "bdgp6_tx2gene"    "galgal5"          "galgal5_tx2gene" 
 #>  [5] "grch37"           "grch37_tx2gene"   "grch38"           "grch38_tx2gene"  
 #>  [9] "grcm38"           "grcm38_tx2gene"   "mmul801"          "mmul801_tx2gene" 
 #> [13] "rnor6"            "rnor6_tx2gene"    "wbcel235"         "wbcel235_tx2gene"
 grch37 = load_data("grch37")
-#> Downloading https://zenodo.org/records/10360995/files/grch37.rda to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmpMMmC4n/temp_libpath4f1e764f17f3/IDConverter/extdata/grch37.rda
+#> Downloading https://zenodo.org/records/10360995/files/grch37.rda to /private/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmplHcuKU/temp_libpath13eb7262c040d/IDConverter/extdata/grch37.rda
 head(grch37)
 #> # A tibble: 6 × 9
 #>   ensgene         entrez symbol   chr    start    end strand biotype description
